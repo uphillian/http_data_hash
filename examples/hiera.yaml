@@ -1,0 +1,15 @@
+---
+version: 5
+defaults:
+  datadir: /etc/puppetlabs/code/environments
+  data_hash: yaml_data
+hierarchy:
+  - name: "HTTP Data Hash"
+    data_hash: "http_data_hash"
+    options:
+      certname: "%{trusted.certname}"
+
+  - name: "Common"
+    paths:
+      - "%{::environment}/hieradata/common.yaml"
+# this should be placed in /etc/puppetlabs/code/hiera.yaml
